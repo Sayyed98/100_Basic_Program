@@ -6,16 +6,22 @@ func main() {
 	var num int
 	fmt.Scan(&num)
 
-	if Perfect(num) {
-		fmt.Println("perfect number")
-
-	} else {
-		fmt.Println("Not perfect")
+	sum := 0
+	for i := 1; i < num; i++ {
+		if num%i == 0 {
+			sum = sum + i
+		}
 	}
 
+	if num == sum {
+		fmt.Println("perfect number")
+	} else {
+		fmt.Println("not a perfect number")
+	}
 }
 
-func Perfect(num int) bool {
+// optimised one
+func PerfectNumber(num int) bool {
 	if num <= 1 {
 		return false
 	}
